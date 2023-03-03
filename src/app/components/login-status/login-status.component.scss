@@ -1,0 +1,34 @@
+@import '~@okta/okta-signin-widget/dist/css/okta-sign-in.min.css';
+
+.security-btn-submit {
+    position: relative;
+    right: 10px;
+    min-width: 85px;
+    color: rgb(222, 236, 160);
+    border: 10px solid #0a67b8;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 0;
+    background: #0af1e6;
+}
+
+.login-status-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+.login-status-user-info {
+    line-height: 43px;
+    border: 1px;
+    padding: 0 17px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
