@@ -8,6 +8,7 @@ import { CartItem } from 'src/app/common/cart-item';
 
 @Component({
   selector: 'app-product-list',
+  standalone: false,
   templateUrl: './product-list-grid.component.html',
   styleUrls: ['./product-list.component.scss']
 })

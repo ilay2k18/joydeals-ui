@@ -4,6 +4,7 @@ import { OrderHistoryService } from 'src/app/services/order-history.service';
 
 @Component({
   selector: 'order-history',
+  standalone: false,
   templateUrl: './order-history.component.html',
   styleUrls: ['./order-history.component.scss']
 })

@@ -7,6 +7,7 @@ import OktaSignIn from '@okta/okta-signin-widget';
 
 @Component({
   selector: 'login',
+  standalone: false,
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })

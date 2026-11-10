@@ -3,6 +3,7 @@ import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart-status',
+  standalone: false,
   templateUrl: './cart-status.component.html',
   styleUrls: ['./cart-status.component.scss']
 })

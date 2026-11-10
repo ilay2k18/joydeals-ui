@@ -1,9 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { OktaAuthStateService, OKTA_AUTH } from '@okta/okta-angular';
-import { OktaAuth } from '@okta/okta-auth-js';
+import { OKTA_AUTH } from '@okta/okta-angular';
+import { AuthState, OktaAuth } from '@okta/okta-auth-js';
 
 @Component({
   selector: 'app-login-status',
+  standalone: false,
   templateUrl: './login-status.component.html',
   styleUrls: ['./login-status.component.scss']
 })
@@ -14,7 +15,7 @@ export class LoginStatusComponent implements OnInit {
   storage: Storage = sessionStorage;
   constructor(@Inject(OKTA_AUTH) private oktaAuth: OktaAuth) {
     this.oktaAuth.authStateManager.subscribe(
-      (isAuth: boolean) => this.isAuthenticated = isAuth);
+      (authState: AuthState) => this.isAuthenticated = !!authState.isAuthenticated);
   }
 
   async ngOnInit() {

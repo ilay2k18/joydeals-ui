@@ -1,6 +1,10 @@
 # JoydealsUi
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.2.5.
+This project uses Angular 22 and [Angular CLI](https://github.com/angular/angular-cli) 22.
+
+## Prerequisites
+
+Use Node.js `^22.22.3`, `^24.15.0`, or `>=26.0.0` and npm 8 or later.
 
 ## Development server
 

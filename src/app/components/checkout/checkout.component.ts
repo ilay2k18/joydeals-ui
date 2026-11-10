@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 import { Router } from '@angular/router';
 
-import { timeStamp } from 'console';
 import { Country } from 'src/app/common/country';
 import { Order } from 'src/app/common/order';
 import { OrderItem } from 'src/app/common/order-item';
@@ -16,6 +15,7 @@ import { JoyDealsValidators } from 'src/app/validators/joy-deals-validators';
 import { environment } from 'src/environments/environment';
 @Component({
   selector: 'checkout',
+  standalone: false,
   templateUrl: './checkout.component.html',
   styleUrls: ['./checkout.component.scss']
 })

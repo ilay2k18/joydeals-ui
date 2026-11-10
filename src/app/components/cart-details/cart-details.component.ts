@@ -4,6 +4,7 @@ import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'cart-details',
+  standalone: false,
   templateUrl: './cart-details.component.html',
   styleUrls: ['./cart-details.component.scss']
 })

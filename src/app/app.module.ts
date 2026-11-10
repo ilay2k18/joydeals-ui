@@ -18,7 +18,7 @@ import { CheckoutComponent } from './components/checkout/checkout.component';
 import { LoginComponent } from './components/login/login.component';
 import { LoginStatusComponent } from './components/login-status/login-status.component';
 import { Router } from '@angular/router';
-import { OKTA_CONFIG, OktaAuthModule, OktaCallbackComponent, OktaAuthGuard } from '@okta/okta-angular';
+import { canActivateAuthGuard, OktaCallbackComponent, provideOktaAuth, withOktaConfig } from '@okta/okta-angular';
 
 import myAppConfig from './config/my-app-config';
 import { OktaAuth } from '@okta/okta-auth-js';
@@ -36,8 +36,8 @@ import { AuthInterceptorService } from './services/auth-interceptor.service';
 const routes: Routes = [
   { path: 'login/callback', component: OktaCallbackComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'order-history', component: OrderHistoryComponent, canActivate: [OktaAuthGuard] },
-  { path: 'members', component: MembersPageComponent, canActivate: [OktaAuthGuard] },
+  { path: 'order-history', component: OrderHistoryComponent, canActivate: [canActivateAuthGuard] },
+  { path: 'members', component: MembersPageComponent, canActivate: [canActivateAuthGuard] },
   { path: 'checkout', component: CheckoutComponent },
   { path: 'cart-details', component: CartDetailsComponent },
   { path: 'products/:id', component: ProductDetailsComponent },
@@ -73,9 +73,8 @@ const oktaAuth = new OktaAuth(myAppConfig.oidc); // the name variable must oktaA
     HttpClientModule,
     NgbModule,
     ReactiveFormsModule,
-    OktaAuthModule
   ],
-  providers: [ProductService, { provide: OKTA_CONFIG, useValue: { oktaAuth } },
+  providers: [ProductService, provideOktaAuth(withOktaConfig({ oktaAuth })),
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorService, multi: true }
   ],
   bootstrap: [AppComponent]
